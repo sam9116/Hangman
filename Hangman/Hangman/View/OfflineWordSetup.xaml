@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Hangman.View.OfflineWordSetup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hangman.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Offline mode requires two people to play, one comes up with words and hints, the other one guesses the word. &#x0a;When you hit enter after typing your hint the game will automatically start." VerticalAlignment="Center" HorizontalAlignment="Stretch" FontSize="30"></TextBlock>
+        <TextBox PlaceholderText="Enter your word" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="50" Name="Word" TextChanged="Word_TextChanged"></TextBox>
+        <TextBox PlaceholderText="Enter your hint" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="50" Name="Hint" KeyUp="Hint_KeyUp"></TextBox>
+    </Grid>
+</Page>
