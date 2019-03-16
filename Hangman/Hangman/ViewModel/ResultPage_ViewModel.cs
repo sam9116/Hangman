@@ -42,5 +42,12 @@ namespace Hangman.ViewModel
                 return Visibility.Collapsed;
             }
         }
+        public string UserName
+        {
+            get
+            {
+                return App.CurrentGame.UserName;
+            }
+        }
     }
 }

@@ -25,7 +25,7 @@
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
                 <TextBlock Name="CharactersUsed" FontSize="50" Text="{x:Bind viewModel.game.UsedCharacter}"></TextBlock>
-                <TextBlock Name="Hint" Text="{x:Bind viewModel.game.Hint}" FontSize="50"></TextBlock>
+                <TextBlock Name="Hint" Text="{x:Bind viewModel.game.Hint}" FontSize="50" TextWrapping="Wrap"></TextBlock>
                 <TextBlock Name="GuessWord" FontSize="50" Text="{x:Bind viewModel.game.Guess, Mode=OneWay}"></TextBlock>
             </StackPanel>
 

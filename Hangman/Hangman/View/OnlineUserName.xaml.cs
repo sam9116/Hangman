@@ -37,19 +37,52 @@ namespace Hangman.View
             e.Handled = true;
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                SetUpOnlineGame(((TextBox)sender).Text);
+                if(!string.IsNullOrEmpty(PlayerName.Text)&&!string.IsNullOrWhiteSpace(PlayerName.Text))
+                {
+                    SetupUserName(PlayerName.Text);
+                    SetUpOnlineGame();
+                }
+               
             }
         }
 
-        private void Submit_Click(object sender, RoutedEventArgs e)
+        private void SetupUserName(string input)
         {
-            App.CurrentGame.UserName = ((TextBox)sender).Text;
-            SetUpOnlineGame(((TextBox)sender).Text);
+            App.CurrentGame.UserName = input;
+
+
+           /* string url = "http://hangmanleaderboards.unclesamscabin.ca/api/Players/" + App.CurrentGame.UserName;
+            WebResponse response = null;
+
+
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "GET";
+                response = await request.GetResponseAsync();
+            }
+            catch (Exception ex)
+            {
+                var messageDialog = new MessageDialog("Something failed, switching to Offline Mode", "Exception");
+
+                // Show the message dialog
+                await messageDialog.ShowAsync();
+
+                Frame.Navigate(typeof(OfflineWordSetup));
+            }*/
         }
 
-        private async void SetUpOnlineGame(string username)
+        private async void Submit_Click(object sender, RoutedEventArgs e)
         {
-            App.CurrentGame.UserName = username;
+            if (!string.IsNullOrEmpty(PlayerName.Text) && !string.IsNullOrWhiteSpace(PlayerName.Text))
+            {
+                SetupUserName(PlayerName.Text);
+                SetUpOnlineGame();
+            }
+        }
+
+        private async void SetUpOnlineGame()
+        {
             //now I need to crawl randomword.com to steal their word and definitions 
 
             string result = null;

@@ -20,12 +20,15 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-            <TextBlock Text="Game Over!" FontSize="50"></TextBlock>
-            <TextBlock Text="You Won!" FontSize="50" Visibility="{x:Bind viewModel.Win}"></TextBlock>
-            <TextBlock Text="You Lost!" FontSize="50" Visibility="{x:Bind viewModel.Lost}"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Game Over!" FontSize="50"></TextBlock>
+                <TextBlock Text="{x:Bind viewModel.UserName}" FontSize="50"></TextBlock>
+            </StackPanel>
+            <TextBlock Text="You Won! " FontSize="50" Visibility="{x:Bind viewModel.Win}"></TextBlock>
+            <TextBlock Text="You Lost! " FontSize="50" Visibility="{x:Bind viewModel.Lost}"></TextBlock>
         </StackPanel>
 
         <Button Name="Restart" Content="Restart" Grid.Column="1" Grid.Row="1" FontSize="50" HorizontalAlignment="Stretch" Click="Restart_Click"></Button>
-        <Button Content="Compare aginst others" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" FontSize="50" HorizontalAlignment="Stretch" Visibility="{x:Bind viewModel.ShowOnline}"></Button>
+        <Button Name ="ViewLeaderBoards" Content="Compare aginst others" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" FontSize="50" HorizontalAlignment="Stretch" Visibility="{x:Bind viewModel.ShowOnline}" Click="ViewLeaderBoards_Click"></Button>
     </Grid>
 </Page>
